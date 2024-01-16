@@ -1,5 +1,7 @@
 import React from 'react'
 import classes from './App.module.scss'
+import { Link, Outlet } from 'react-router-dom'
+import Admin from "@/pages/Admin/Admin"
 
 
 const App = () => {
@@ -13,10 +15,22 @@ const App = () => {
 
 	return (
 		<div className={classes.App}>
-			<button className={classes.button} onClick={increment}>+</button>
-			<div className={classes.count}>{count}</div>
-			<button className={classes.button} onClick={decrement}>-</button>
+			<header className={classes.header}>
+				<Link to={'/personal'}>Personal</Link>
+				<Link to={'/admin'}><Admin /></Link>
+			</header>
+			<Outlet />
+			<main className={classes.main}>
+
+				<button className={classes.button} onClick={increment}>+</button>
+				<div className={classes.count}>{count}</div>
+				<button className={classes.button} onClick={decrement}>-</button>
+
+			</main>
+
+
 		</div>
+
 	)
 }
 
