@@ -1,7 +1,7 @@
 import React from 'react'
 import classes from './App.module.scss'
 import { Link, Outlet } from 'react-router-dom'
-import Admin from "@/pages/Admin/Admin"
+import Admin from "@/pages/Admin"
 
 
 const App = () => {
@@ -19,9 +19,9 @@ const App = () => {
 				<Link to={'/personal'}>Personal</Link>
 				<Link to={'/admin'}><Admin /></Link>
 			</header>
-			<Outlet />
-			<main className={classes.main}>
 
+			<main className={classes.main}>
+				{/* <Outlet /> */}
 				<button className={classes.button} onClick={increment}>+</button>
 				<div className={classes.count}>{count}</div>
 				<button className={classes.button} onClick={decrement}>-</button>
