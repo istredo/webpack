@@ -1,13 +1,17 @@
 import { createRoot } from 'react-dom/client'
-import App from './components/App';
 import {
 	createBrowserRouter,
 	RouterProvider,
 } from "react-router-dom";
 
 
-const root = document.getElementById('root');
+import App from './App';
+import Admin from './pages/Admin';
+import ErrorPage from './pages/Error';
+import './styles/index.scss'
 
+const root = document.getElementById('root');
+const container = createRoot(root)
 if (!root) {
 	throw new Error('Root not found')
 }
@@ -15,6 +19,7 @@ const router = createBrowserRouter([
 	{
 		path: "/",
 		element: <App />,
+		errorElement: <ErrorPage />,
 		children: [
 			{
 				path: "/personal",
@@ -22,12 +27,13 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "/admin",
-				element: <h2>Админ</h2>,
+				element: <Admin />,
 			},
+
 		]
 	},
+
 ]);
-const container = createRoot(root)
 
 container.render(
 	<RouterProvider router={router} />

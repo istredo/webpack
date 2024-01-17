@@ -1,0 +1,21 @@
+@import "@/styles/variables.scss";
+
+.main {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	font-size: 36px;
+	flex: 1 0 auto;
+}
+.button {
+	width: 40px;
+	height: 40px;
+	background-color: $accent07;
+	color: aliceblue;
+	border-radius: 5px;
+}
+.count {
+	font-size: 2rem;
+	font-weight: 500;
+}

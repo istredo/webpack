@@ -30,7 +30,15 @@ export function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
 		}],
 	}
 
+	// const cssLoaderModules = {
+	// 	test: /\.css$/i,
+	// 	loader: "css-loader",
+	// 	options: {
+	// 		modules: true,
+	// 	},
+	// }
 	const cssLoaderModules = {
+		test: /\.css$/i,
 		loader: "css-loader",
 		options: {
 			modules: {
@@ -40,17 +48,18 @@ export function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
 	}
 
 	const scssLoader = {
-		test: /\.s[ac]ss$/i,
+		test: /\.(sa|sc|c)ss$/i,
 		use: [
 			// Creates `style` nodes from JS strings
-			isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-			cssLoaderModules,
-			// Compiles Sass to CSS
+			isDev ? "style-loader" : MiniCssExtractPlugin.loader,
+			'css-loader',
+			"postcss-loader",
 			"sass-loader",
 		],
 	}
 	const tsLoader = {
 		test: /\.tsx?$/,
+		exclude: /node_modules/,
 		use: [
 			{
 				loader: 'ts-loader',
@@ -60,13 +69,8 @@ export function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
 			}
 		]
 	}
-	// const tsLoader = {
-	// 	test: /\.tsx?$/,
-	// 	use: 'ts-loader',
-	// 	exclude: /node_modules/,
-	// }
-
 	return [
+		// cssLoaderModules,
 		imageLoader,
 		svgLoader,
 		scssLoader,
