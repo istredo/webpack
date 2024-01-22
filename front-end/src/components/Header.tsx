@@ -9,6 +9,7 @@ const Header = () => {
 			<Link to={'/'} className={classes.link}>go home</Link>
 			<Link to={'/personal'} className={classes.link}>Personal</Link>
 			<Link to={'/admin'} className={classes.link}>Admin</Link>
+			<Link to={'/ws'} className={classes.link}>WS</Link>
 		</header>
 	)
 }

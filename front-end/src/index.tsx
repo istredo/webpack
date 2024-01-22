@@ -9,6 +9,7 @@ import App from './App';
 import Admin from './pages/Admin';
 import ErrorPage from './pages/Error';
 import './styles/index.scss'
+import WS from './pages/WS';
 
 const root = document.getElementById('root');
 const container = createRoot(root)
@@ -31,6 +32,11 @@ const router = createBrowserRouter([
 			},
 
 		]
+	},
+	{
+		path: "/ws",
+		element: <WS />,
+		errorElement: <ErrorPage />,
 	},
 
 ]);

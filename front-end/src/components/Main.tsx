@@ -4,7 +4,7 @@ import React from 'react'
 import classes from './Main.module.scss'
 
 const Main = () => {
-	const [count, setCount] = React.useState(0)
+	const [count, setCount] = React.useState<number>(0)
 	const increment = () => {
 		setCount(prev => prev + 1)
 	}
